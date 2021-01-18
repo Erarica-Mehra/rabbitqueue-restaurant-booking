@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring boot email template with Thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- use the font -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 48px;
+        }
+    </style>
+</head>
+ <body>
+    <p th:text="${'Hello Restaurant Manager '}"></p>
+    <p>
+      <span>You have received booking request from</span> <span th:text="${message.userName}"></span> for booking a table on <span th:text="${message.date}"></span> at <span th:text="${message.slot}"></span>
+<!--       <span th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy')}"></span> -->
+    </p>
+    <th:block th:if="${message.text != null}">
+    <p>
+      The guest has asked for the following request.
+    </p>
+    <i><span th:text="${message.text}"></span></i>
+    </th:block>
+    
+<!--     <p>Approve the request :  -->
+<!--     <span><a th:href = "@{/booking/approve/true}">Approve</a></span></br> -->
+<!--     <span>Reject the request : <a th:href = "@{/booking/approve/false}">Reject</a> </span> -->
+<!--     </p> -->
+  </body>
+</html>

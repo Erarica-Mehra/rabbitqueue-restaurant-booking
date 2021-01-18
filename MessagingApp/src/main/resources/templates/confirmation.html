@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring boot email template with Thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- use the font -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 48px;
+        }
+    </style>
+</head>
+ <body>
+    <p> Hello <span th:text="${message.userName}"> </span></p>
+    <p>
+      <span>You booking for restaurant</span> <i></i><span th:text="${message.restaurant}"></span> on <span th:text="${message.date}"></span> at <span th:text="${message.slot}"></span> has been confirmed
+<!--       <span th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy')}"></span> -->
+    </p>
+    Regards,
+    
+  </body>
+</html>
